@@ -12,7 +12,7 @@ Neste repositório, exploramos as incríveis possibilidades do JavaScript, aplic
   🌼 Entusiasta de programação, sempre em busca de novos desafios!
 
 - **Camille Guillen Fernandes de Almeida**  
-  💻 Apaixonada por tecnologia e criatividade, acredita que o código pode contar histórias.
+  💻 .
 
 - **Ruan Defavari Godoi**  
   🎮 Desenvolvedor em ascensão, adora transformar ideias em realidade!
