@@ -33,7 +33,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>CRUD de Filmes</h1>
+      <h1>CineFilmes</h1>
       <MovieForm addMovie={addMovie} updateMovie={updateMovie} editingMovie={editingMovie} setEditingMovie={setEditingMovie} />
       <MovieList movies={movies} setEditingMovie={setEditingMovie} deleteMovie={deleteMovie} />
     </div>
