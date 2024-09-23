@@ -7,7 +7,7 @@ import './App.css';
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [editingMovie, setEditingMovie] = useState(null);
-  const apiKey = 'SUA_CHAVE_API'; // Substitua pela sua chave API
+  const apiKey = 'SUA_CHAVE_API'; // Substituir pela chave API
 
   useEffect(() => {
     fetchMovies();
