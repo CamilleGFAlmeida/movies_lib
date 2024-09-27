@@ -7,15 +7,28 @@ import './App.css';
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [editingMovie, setEditingMovie] = useState(null);
-  const apiKey = 'SUA_CHAVE_API'; // Substituir pela chave API
+  const apiKey = '411bd8e34b3dc946797dcabfa78abe77'; // Substituir pela chave API
 
   useEffect(() => {
     fetchMovies();
   }, []);
 
+  const fetchMovieDetails = async (movieId) => {
+    const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=pt-BR&append_to_response=credits`);
+    return response.data;
+  };
+
   const fetchMovies = async () => {
     const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=pt-BR`);
-    setMovies(response.data.results);
+    const moviesWithDetails = await Promise.all(response.data.results.map(async (movie) => {
+      const details = await fetchMovieDetails(movie.id);
+      return {
+        ...movie,
+        year: details.release_date.split('-')[0], // Extrai o ano
+        director: details.credits.crew.find(crewMember => crewMember.job === 'Director')?.name || 'Desconhecido' // Busca o diretor
+      };
+    }));
+    setMovies(moviesWithDetails);
   };
 
   const addMovie = (movie) => {
